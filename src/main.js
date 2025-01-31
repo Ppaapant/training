@@ -86,7 +86,11 @@ const getBookbyid = bookId => {
    // ---------------------------------------------------------------DELETE-----------------------------------------------------------------------
 
 
-   const deletedByID =  bookID => {
+   const deleteBookById =  bookID => {
+   const fetchOptions = {
+    method: 'DELETE',
+   }
+
     return fetch().then( response => {
       if(!response.ok){
       throw new Error(response.status)
@@ -95,3 +99,10 @@ const getBookbyid = bookId => {
     });
    };
  
+   deleteBookById(11)
+   .then(data => {
+    console.log(data);
+   })
+   .catch(err => {
+    console.log(err);
+   });
